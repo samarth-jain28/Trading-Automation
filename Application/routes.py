@@ -9,4 +9,8 @@ def welcome():
 
 @app.route("/index")
 def index():
-    return render_template("base.html")
+    return render_template("base.html" , title="HomePage")
+
+@app.route("/about")
+def about():
+    return render_template("about.html" , title="About Us")
