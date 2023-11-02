@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 {% block con %}
-<form action="" novalidate>
-    
+<form action="" method="post" novalidation>
+    {{form.hidden_tag()}}
+    <p>{{form.username.label}} <br>
+        {{form.username()}}
+    </p>
+    <p>
+        {{form.pin.label}} <br>
+        {{form.pin()}}
+    </p>
+    <p>
+        {{form.submit()}}
+    </p>
 </form>
 {% endblock %}

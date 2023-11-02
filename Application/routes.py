@@ -1,5 +1,6 @@
 from Application import app
 from flask import render_template
+from Application.form import LoginForm 
 
 @app.route("/")
 @app.route("/welcome")
@@ -15,6 +16,7 @@ def index():
 def about():
     return render_template("about.html" , title="About Us")
 
-@app.route("/login")
+@app.route("/login" , methods = ['GET','POST'])
 def login():
-    return render_template("login.html" , title="Login")
+    form = LoginForm()
+    return render_template("login.html" , title="Login" ,form=form)
