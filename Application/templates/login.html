@@ -1,16 +1,42 @@
-{% extends "base.html" %}
-{% block con %}
-<form action="" method="post" novalidation>
-    {{form.hidden_tag()}}
-    <p>{{form.username.label}} <br>
-        {{form.username()}}
-    </p>
-    <p>
-        {{form.pin.label}} <br>
-        {{form.pin()}}
-    </p>
-    <p>
-        {{form.submit()}}
-    </p>
-</form>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width-device-width,intial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{url_for('static' , filename='css/login.css')}}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+    <div class="container">
+       <nav>
+        <img src="{{url_for('static' , filename='images/logo.png')}}"  class="logo">
+        <ul>
+            <li><a href="#">Market</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">About us</a></li>
+        
+        </ul>
+        </nav>
+    <div class="wrapper">
+        <form action="" method="post">
+            {{form.hidden_tag()}}
+            <h1>Login</h1>
+            <div class="input-box">
+                {{form.username()}}
+        
+            </div>
+            <div class="input-box">
+                {{form.pin()}}
+            </div>  
+             <div class="input-box">
+                {{form.totp()}} 
+            </div> 
+            {{form.submit( class_ = "btn")}}
+        </form>
+    </div>
+</body>
+</html>
