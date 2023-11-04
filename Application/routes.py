@@ -8,14 +8,9 @@ from Application.AngleApi import connect
 def welcome():
     return render_template("welcome.html")
 
-@app.route("/index")
-def index():
-    return render_template("base.html" , title="HomePage")
-
 @app.route("/about")
 def about():
     return render_template("about.html" , title="About Us")
-
 
 @app.route("/login" , methods = ['GET','POST'])
 def login():
@@ -28,9 +23,6 @@ def login():
             flash('{}'.format(data))
             return redirect('/login') 
         else :
-            return redirect('/profile')
+            return render_template('profile.html')
     return render_template("login.html" , title="Login" ,form=form)
 
-@app.route("/profile"  )
-def profile():
-    return render_template("profile.html" )
