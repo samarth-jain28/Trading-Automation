@@ -21,7 +21,7 @@
             </ul>
         </nav>
         <div class="wrapper">
-            <form action="" method="post">
+            <form action="" method="post" novalidation>
                 {{form.hidden_tag()}}
                 <h1>Login</h1>
                 <div class="input-box">
@@ -35,6 +35,15 @@
                 </div> 
                 {{form.submit( class_ = "btn")}}
             </form>
+            {% with message = get_flashed_messages() %}
+            {% if message %}
+            <ul>
+                {% for msg in message %}
+                <li>{{msg}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
     </div>
 </body>
 </html>

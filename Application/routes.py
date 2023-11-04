@@ -24,7 +24,11 @@ def login():
         data = connect(form)
         print(type(data))
         print(data)
-        return redirect('/profile')
+        if type(data)==str:
+            flash('{}'.format(data))
+            return redirect('/login') 
+        else :
+            return redirect('/profile')
     return render_template("login.html" , title="Login" ,form=form)
 
 @app.route("/profile"  )
