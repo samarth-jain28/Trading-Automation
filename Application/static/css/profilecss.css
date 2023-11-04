@@ -1,0 +1,22 @@
+body {
+    background: #f5f5f5;
+    margin-top: 20px;
+    
+}
+.account-settings-fileinput {
+    position  : absolute;
+    visibility: hidden;
+    width     : 1px;
+    height    : 1px;
+    opacity   : 0;
+}
+nav{
+    width: 100%;
+    padding: 20px;
+    display: flex;    
+}
+.logo{
+
+    width: 50px;
+    cursor: pointer;
+}
