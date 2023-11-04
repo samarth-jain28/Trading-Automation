@@ -12,31 +12,29 @@
 </head>
 <body>
     <div class="container">
-       <nav>
-        <img src="{{url_for('static' , filename='images/logo.png')}}"  class="logo">
-        <ul>
-            <li><a href="#">Market</a></li>
-            <li><a href="#">Features</a></li>
-            <li><a href="#">About us</a></li>
-        
-        </ul>
+        <nav class="navigation">
+            <img src="{{url_for('static' , filename='images/logo.png')}}"  class="logo">
+            <ul>
+                <li><a href="#">Market</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">About us</a></li> 
+            </ul>
         </nav>
-    <div class="wrapper">
-        <form action="" method="post">
-            {{form.hidden_tag()}}
-            <h1>Login</h1>
-            <div class="input-box">
-                {{form.username()}}
-        
-            </div>
-            <div class="input-box">
-                {{form.pin()}}
-            </div>  
-             <div class="input-box">
-                {{form.totp()}} 
-            </div> 
-            {{form.submit( class_ = "btn")}}
-        </form>
+        <div class="wrapper">
+            <form action="" method="post">
+                {{form.hidden_tag()}}
+                <h1>Login</h1>
+                <div class="input-box">
+                    {{form.username()}}
+                </div>
+                <div class="input-box">
+                    {{form.pin()}}
+                </div>  
+                <div class="input-box">
+                    {{form.totp()}} 
+                </div> 
+                {{form.submit( class_ = "btn")}}
+            </form>
     </div>
 </body>
 </html>

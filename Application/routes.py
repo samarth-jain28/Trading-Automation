@@ -21,6 +21,8 @@ def about():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        connect(form)
+        data = connect(form)
+        print(type(data))
+        print(data)
         return redirect('/welcome')
     return render_template("login.html" , title="Login" ,form=form)

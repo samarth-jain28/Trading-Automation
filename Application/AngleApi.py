@@ -3,20 +3,31 @@ from SmartApi.smartConnect import SmartConnect
 import pyotp
 
 def connect(form):
-    print ("Hello world Angle Api")
+    ## fetching data from client 
     client = form.username.data
     pin = form.pin.data
-    print(pin)
+    totp = form.totp.data
+ 
+    ## send client id pin and totp to broker 
     api_key = 'lZuRspbx'
-    username = client
-    pwd = pin
+    username = form.username.data
+    pwd = form.pin.data
     smartApi = SmartConnect(api_key)
-    token = '6R5D46XUINYLXT3XKJ6AOGVDII'
-    totp=pyotp.TOTP(token).now()
+    token = form.totp.data
+    try:
+        totp=pyotp.TOTP(token).now()
+    except:
+        return "Invalid TOTP"
     correlation_id = "abcde"
     data = smartApi.generateSession(username, pwd,totp)
-    authToken = data['data']['jwtToken']
-    refreshToken = data['data']['refreshToken']
-    feedToken = smartApi.getfeedToken()
-    res = smartApi.getProfile(refreshToken)
-    print("Res:", res)
+
+    ## checking response for input 
+    if data['status']==False :
+        return data['message']
+    else:
+        authToken = data['data']['jwtToken']
+        refreshToken = data['data']['refreshToken']
+        feedToken = smartApi.getfeedToken()
+        res = smartApi.getProfile(refreshToken)
+        return res
+
