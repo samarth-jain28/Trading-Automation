@@ -24,5 +24,9 @@ def login():
         data = connect(form)
         print(type(data))
         print(data)
-        return redirect('/welcome')
+        return redirect('/profile')
     return render_template("login.html" , title="Login" ,form=form)
+
+@app.route("/profile"  )
+def profile():
+    return render_template("profile.html" )
